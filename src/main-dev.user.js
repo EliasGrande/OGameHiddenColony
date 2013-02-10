@@ -4,8 +4,8 @@
 // @namespace    http://userscripts.org/users/68563/scripts
 // @downloadURL  https://userscripts.org/scripts/source/158801.user.js
 // @updateURL    https://userscripts.org/scripts/source/158801.meta.js
-// @version	     0.2
-// @include	     *://*.ogame.*/game/index.php?*page=*
+// @version      0.2
+// @include      *://*.ogame.*/game/index.php?*page=*
 // ==/UserScript==
 /*! OGame Hidden Colony (C) 2012 Elías Grande Cásedas | GNU-GPL | gnu.org/licenses */
 (function(){
