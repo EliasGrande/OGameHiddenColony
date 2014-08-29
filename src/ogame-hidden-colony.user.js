@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         OGame Hidden Colony
-// @description  Shows you the update timestamp of the planet APIs, helping you to make a hidden colony to hide your activity.
-// @namespace    http://userscripts.org/users/68563/scripts
-// @downloadURL  https://userscripts.org/scripts/source/158801.user.js
-// @updateURL    https://userscripts.org/scripts/source/158801.meta.js
-// @version      0.2
+// @description  Shows the update timestamp of your planet APIs, helping you to make a hidden colony to hide your activity.
+// @namespace    https://github.com/EliasGrande/
+// @downloadURL  https://github.com/EliasGrande/OGameHiddenColony/raw/master/dist/releases/latest.user.js
+// @updateURL    https://github.com/EliasGrande/OGameHiddenColony/raw/master/dist/releases/latest.meta.js
+// @version      1.0.0
 // @include      *://*.ogame.*/game/index.php?*page=*
 // ==/UserScript==
-/*! OGame Hidden Colony (C) 2012 Elías Grande Cásedas | GNU-GPL | gnu.org/licenses */
+/*! OGame Hidden Colony (C) 2014 Elías Grande Cásedas | MIT | opensource.org/licenses/MIT */
 (function(){
 ////////////
 
@@ -19,7 +19,7 @@ doc = win.document;
 /**
  * ID prefix to avoid conflicts with other tools.
  */
-const IDP = /*[IDP]*/'o_hidden_colony_'/*[/IDP]*/;
+const IDP = 'o_hidden_colony_';
 
 /**
  * Minimum time between API requests (seconds).
@@ -35,7 +35,7 @@ var API_TOOLS = {
 		{NAME : 'Ogniter', URL : 'www.ogniter.org'}
 	],
 	PLAYER_DATA : [
-		{NAME : 'GalaxyInfo', URL : 'userscripts.org/scripts/show/136509'}
+		{NAME : 'GalaxyInfo', URL : 'userscripts-mirror.org/scripts/show/136509'}
 	]
 }
 
@@ -298,7 +298,7 @@ ApiDao.prototype = {
  * Builds the translation map.
  */
 var I18nMap = function (lang) {
-	/*! [i18n] en_GB */
+	/*! [i18n=en] */
 	deepMerge (this,{
 		TITLE   : 'HiddenColony',
 		API     : 'API',
@@ -309,7 +309,7 @@ var I18nMap = function (lang) {
 		LOC_TIM : 'Local time',
 		REM_TIM : 'Remaining time'
 	});
-	/*! [i18n] es_ES */
+	/*! [i18n=es] */
 	if (/es|ar|mx/.test(lang)) deepMerge (this,{
 		USED_BY : 'Usado por',
 		LAS_MOD : 'Última actualización',
@@ -318,6 +318,7 @@ var I18nMap = function (lang) {
 		LOC_TIM : 'Hora local',
 		REM_TIM : 'Tiempo restante'
 	});
+	/*! [/i18n] */
 }
 
 var MenuButton = function (menu, title, action) {
