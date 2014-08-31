@@ -4,7 +4,7 @@
 // @namespace    https://github.com/EliasGrande/
 // @downloadURL  https://github.com/EliasGrande/OGameHiddenColony/raw/master/dist/releases/latest.user.js
 // @updateURL    https://github.com/EliasGrande/OGameHiddenColony/raw/master/dist/releases/latest.meta.js
-// @version      1.0.0
+// @version      1.0.1
 // @include      *://*.ogame.*/game/index.php?*page=*
 // ==/UserScript==
 /*! OGame Hidden Colony (C) 2014 Elías Grande Cásedas | MIT | opensource.org/licenses/MIT */
@@ -85,7 +85,16 @@ var DomDao = function () {
 	//// GMT zone of the server (in minutes) ////
 	
 	// locTime: seconds from 00:00:00 in localized time (from top-right clock)
-	var locTime = this.query('.OGameClock span').childNodes[0].nodeValue;
+	var locTime;
+	try {
+		// with antigame
+		locTime = this.query('#ago_clock_server').childNodes[0].nodeValue
+			.replace(/\d+\D\d+\D\d{4}/,'');
+	}
+	catch(e) {
+		// without antigame
+		locTime = this.query('.OGameClock span').childNodes[0].nodeValue;
+	}
 	locTime = locTime.replace(/^\D+/,'').replace(/\D+$/,'').split(/\D/);
 	locTime = parseInt(locTime[0])*3600 + parseInt(locTime[1])*60 +
 			parseInt(locTime[2]);
