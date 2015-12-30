@@ -9,7 +9,7 @@
 // @include      *://*.ogame.*/game/index.php?*page=*
 // @include      *://*.ogame.gameforge.*/game/index.php?*page=*
 // ==/UserScript==
-/*! OGame Hidden Colony (C) 2014 Elías Grande Cásedas | MIT | opensource.org/licenses/MIT */
+/*! OGame Hidden Colony (C) 2015 Elías Grande Cásedas | MIT | opensource.org/licenses/MIT */
 (function(){
 ////////////
 
